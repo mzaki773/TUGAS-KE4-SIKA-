@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIKA - Form Mahasiswa</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<script src="assets/js/app.js"></script>
+<body>
+  <a class="skip-link" href="#konten">Lewati ke konten utama</a>
+
+  <header>
+    <div class="container">
+      <h1>Sistem Informasi Akademik (SIKA)</h1>
+      <p class="tagline">Input data mahasiswa.</p>
+    </div>
+  </header>
+
+  <nav aria-label="Navigasi utama">
+    <div class="container">
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="mahasiswa.html">Profil Mahasiswa</a></li>
+        <li><a href="form-mahasiswa.html" aria-current="page">Form Mahasiswa</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="konten" class="container">
+    <h2>Form Data Mahasiswa</h2>
+    <p>Kolom bertanda <span class="required-mark" aria-hidden="true">*</span> wajib diisi.</p>
+
+    <!-- Catatan keamanan: data minimization - tidak ada kolom password/data sensitif pada form ini. -->
+    <form action="#" method="post">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nim">NIM <span class="required-mark" aria-hidden="true">*</span></label>
+          <input type="text" id="nim" name="nim" required>
+        </div>
+        <div class="form-group">
+          <label for="angkatan">Angkatan <span class="required-mark" aria-hidden="true">*</span></label>
+          <input type="number" id="angkatan" name="angkatan" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="nama">Nama Lengkap <span class="required-mark" aria-hidden="true">*</span></label>
+        <input type="text" id="nama" name="nama" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email <span class="required-mark" aria-hidden="true">*</span></label>
+        <input type="email" id="email" name="email" required aria-describedby="email-hint">
+        <p class="field-hint" id="email-hint">Gunakan email kampus yang aktif.</p>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="prodi">Program Studi <span class="required-mark" aria-hidden="true">*</span></label>
+          <select id="prodi" name="prodi" required>
+            <option value="">-- Pilih --</option>
+            <option value="ti">Teknik Informatika</option>
+            <option value="si">Sistem Informasi</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="tgl">Tanggal Lahir</label>
+          <input type="date" id="tgl" name="tgl">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="alamat">Alamat</label>
+        <textarea id="alamat" name="alamat" rows="3"></textarea>
+      </div>
+
+      <!-- Contoh state error/success: warna + ikon + teks, bukan warna saja. -->
+      <div class="message message-error" role="alert">
+        <span class="message-icon" aria-hidden="true">&#10007;</span>
+        <span><strong>Error:</strong> Contoh pesan kesalahan - NIM harus berupa 8 digit angka.</span>
+      </div>
+      <div class="message message-success" role="status">
+        <span class="message-icon" aria-hidden="true">&#10003;</span>
+        <span><strong>Berhasil:</strong> Contoh pesan sukses - data siap disimpan.</span>
+      </div>
+
+      <div class="button-group">
+        <button type="submit">Simpan</button>
+        <button type="reset" class="btn-secondary">Batal</button>
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 SIKA - Aplikasi Berbasis Platform</p>
+    </div>
+  </footer>
+</body>
+</html>

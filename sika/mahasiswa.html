@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIKA - Profil Mahasiswa</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<script src="assets/js/app.js"></script>
+<body>
+  <a class="skip-link" href="#konten">Lewati ke konten utama</a>
+
+  <header>
+    <div class="container">
+      <h1>Sistem Informasi Akademik (SIKA)</h1>
+      <p class="tagline">Profil dan data akademik mahasiswa.</p>
+    </div>
+  </header>
+
+  <nav aria-label="Navigasi utama">
+    <div class="container">
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="mahasiswa.html" aria-current="page">Profil Mahasiswa</a></li>
+        <li><a href="form-mahasiswa.html">Form Mahasiswa</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="konten" class="container">
+    <h2>Profil Mahasiswa</h2>
+
+    <section class="profile">
+      <figure>
+        <img src="assets/images/mahasiswa.jpg" alt="Foto profil mahasiswa M.ZAKI ISMAIL" width="180" height="180">
+        <figcaption>M.ZAKI ISMAIL</figcaption>
+      </figure>
+      <div class="profile-info">
+        <h3>Identitas Mahasiswa</h3>
+        <p><strong>NIM:</strong>TI22250023</p>
+        <p><strong>Program Studi:</strong> Teknik Informatika</p>
+        <p><strong>Angkatan:</strong> 2024</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Daftar Mata Kuliah</h2>
+      <div class="table-wrapper">
+        <table>
+          <caption class="visually-hidden">Daftar mata kuliah yang diambil mahasiswa</caption>
+          <thead>
+            <tr>
+              <th scope="col">Kode</th>
+              <th scope="col">Mata Kuliah</th>
+              <th scope="col">SKS</th>
+              <th scope="col">Semester</th>
+              <th scope="col">Dosen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>IF101</td>
+              <td>Aplikasi Berbasis Platform</td>
+              <td>3</td>
+              <td>3</td>
+              <td>Jihadul Akbar, S.Kom., M.Kom.</td>
+            </tr>
+            <tr>
+              <td>IF102</td>
+              <td>Basis Data</td>
+              <td>3</td>
+              <td>3</td>
+              <td>Dosen Basis Data</td>
+            </tr>
+            <tr>
+              <td>IF103</td>
+              <td>Pemrograman Web</td>
+              <td>3</td>
+              <td>3</td>
+              <td>Dosen Pemrograman Web</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 SIKA - Aplikasi Berbasis Platform</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,398 @@
+/* =========================================================
+   SIKA - style.css (Bab 3)
+   Urutan: 1 Reset/Base, 2 Variables, 3 Typography, 4 Layout,
+           5 Components, 6 Forms & Tables, 7 Media Queries
+   Catatan keamanan: CSS hanya presentasi, bukan authorization.
+   Tidak ada token/password/data sensitif di stylesheet ini.
+   ========================================================= */
+
+/* 1. Reset / Base */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--background);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 2. Variables (design tokens) */
+:root {
+  --primary: #1d4ed8;
+  --primary-dark: #1e40af;
+  --surface: #ffffff;
+  --background: #f3f4f6;
+  --text: #1f2937;
+  --muted: #4b5563;
+  --border: #d1d5db;
+  --error: #b91c1c;
+  --error-bg: #fef2f2;
+  --success: #166534;
+  --success-bg: #f0fdf4;
+  --focus: #f59e0b;
+
+  --space-1: .5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --radius: .75rem;
+  --radius-sm: .4rem;
+}
+
+/* 3. Typography */
+h1 {
+  font-size: 1.75rem;
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: 1.35rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+}
+
+p {
+  color: var(--muted);
+}
+
+/* 4. Layout */
+.container {
+  width: min(100% - 2rem, 1100px);
+  margin-inline: auto;
+}
+
+main {
+  padding-block: var(--space-2);
+}
+
+section {
+  margin-block: var(--space-3);
+}
+
+header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-2) 0;
+}
+
+header h1 {
+  margin: 0;
+  color: var(--primary);
+}
+
+.tagline {
+  margin: .25rem 0 0;
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  padding: var(--space-2) 0;
+  margin-top: var(--space-4);
+}
+
+footer p {
+  margin: 0;
+  text-align: center;
+  font-size: .9rem;
+}
+
+/* Navigasi - Flexbox (layout satu dimensi) */
+nav {
+  background: var(--primary);
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem;
+  list-style: none;
+  margin: 0;
+  padding: .6rem 0;
+}
+
+nav a {
+  display: block;
+  padding: .6rem .8rem;
+  color: #fff;
+  text-decoration: none;
+  border-radius: .35rem;
+}
+
+nav a:hover,
+nav a:focus {
+  background: var(--primary-dark);
+}
+
+/* Penanda halaman aktif: garis bawah (bukan hanya warna) */
+nav a[aria-current="page"] {
+  background: var(--primary-dark);
+  text-decoration: underline;
+  text-underline-offset: .3rem;
+  font-weight: 700;
+}
+
+/* Dashboard - Grid (layout dua dimensi), mobile-first */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2);
+  margin-block: var(--space-3);
+}
+
+/* 5. Components */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-2);
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.card p {
+  margin-bottom: 0;
+}
+
+/* Profil - Grid */
+.profile {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  background: var(--surface);
+  padding: var(--space-2);
+  border-radius: var(--radius);
+}
+
+.profile figure {
+  margin: 0;
+}
+
+.profile img {
+  max-width: 180px;
+  border-radius: var(--radius);
+}
+
+.profile figcaption {
+  margin-top: .5rem;
+  font-weight: 600;
+}
+
+.profile-info h3 {
+  margin-top: 0;
+}
+
+.profile-info p {
+  margin: .35rem 0;
+}
+
+/* Pesan status: warna + ikon + teks + border */
+.message {
+  display: flex;
+  align-items: flex-start;
+  gap: .6rem;
+  padding: .75rem 1rem;
+  margin-bottom: var(--space-2);
+  border-radius: var(--radius-sm);
+  border: 1px solid;
+  border-left-width: 6px;
+}
+
+.message-icon {
+  font-weight: 700;
+}
+
+.message-error {
+  color: var(--error);
+  background: var(--error-bg);
+  border-color: var(--error);
+}
+
+.message-success {
+  color: var(--success);
+  background: var(--success-bg);
+  border-color: var(--success);
+}
+
+/* Utilities sederhana */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: #fff;
+  color: var(--primary-dark);
+  padding: .5rem 1rem;
+  z-index: 10;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* 6. Forms & Tables */
+.table-wrapper {
+  overflow-x: auto;
+  background: var(--surface);
+  border-radius: var(--radius);
+}
+
+table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: .75rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+th {
+  background: #eff6ff;
+  color: #1e3a8a;
+}
+
+form {
+  max-width: 760px;
+  background: var(--surface);
+  padding: 1.25rem;
+  border-radius: var(--radius);
+}
+
+.form-group {
+  margin-bottom: var(--space-2);
+}
+
+label {
+  display: block;
+  margin-bottom: .35rem;
+  font-weight: 600;
+}
+
+.required-mark {
+  color: var(--error);
+}
+
+.field-hint {
+  margin: .3rem 0 0;
+  font-size: .875rem;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: .7rem .8rem;
+  border: 1px solid #6b7280;
+  border-radius: var(--radius-sm);
+  font: inherit;
+  background: #fff;
+}
+
+/* Focus state: outline tebal, kontras tinggi, terlihat pada keyboard */
+input:focus,
+select:focus,
+textarea:focus,
+button:focus-visible,
+nav a:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-color: var(--primary);
+}
+
+button,
+input[type="submit"] {
+  border: 0;
+  border-radius: var(--radius-sm);
+  padding: .7rem 1rem;
+  background: var(--primary);
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background: var(--primary-dark);
+}
+
+.btn-secondary {
+  background: #fff;
+  color: var(--primary-dark);
+  border: 2px solid var(--primary-dark);
+}
+
+.btn-secondary:hover {
+  background: #eff6ff;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2);
+}
+
+/* 7. Media Queries (mobile-first) */
+@media (max-width: 640px) {
+  nav ul {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 640px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 700px) {
+  .profile {
+    grid-template-columns: 180px 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 960px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
